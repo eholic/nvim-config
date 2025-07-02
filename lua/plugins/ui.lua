@@ -46,7 +46,7 @@ return {
       }
       require('scope').setup {}
       vim.keymap.set('n', '<Tab>', '<cmd> BufferLineCycleNext <CR>', { desc = 'bufferline cycle next' })
-      vim.keymap.set('n', '<S-Tab>', '<cmd> BufferLineCyclePrev <CR>', { desc = 'bufferline cycle next' })
+      vim.keymap.set('n', '<S-Tab>', '<cmd> BufferLineCyclePrev <CR>', { desc = 'bufferline cycle previous' })
     end,
   },
   {
@@ -75,4 +75,5 @@ return {
     },
     opts = {},
   },
+  { 'echasnovski/mini.icons', version = '*' },
 }

@@ -87,6 +87,9 @@ return {
           buffers = {
             path_display = filenameFirst,
           },
+          lsp_references = {
+            path_display = filenameFirst,
+          },
           colorscheme = {
             enable_preview = true,
           },

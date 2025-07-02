@@ -63,3 +63,9 @@ vim.opt.wrap = false
 
 -- Hide the intro message when starting Vim.
 vim.opt.shortmess = 'I'
+
+-- [[ DIagnostic ]]
+vim.diagnostic.config { virtual_text = true }
+
+-- for avante.nvim
+vim.opt.laststatus = 3

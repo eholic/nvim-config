@@ -14,7 +14,7 @@ vim.api.nvim_create_autocmd('TextYankPost', {
 
 -- Auto ditect root directory
 --   Array of file names indicating root directory. Modify to your liking.
-local root_names = { '.git', 'Makefile', '_darcs', '.hg', '.bzr', '.svn', 'node_modules', 'CMakeLists.txt', '.stylua.toml' }
+local root_names = { '.git', 'Makefile', '_darcs', '.hg', '.bzr', '.svn', 'node_modules', 'CMakeLists.txt', '.stylua.toml', 'README.md' }
 --   Cache to use for speed up (at cost of possibly outdated results)
 local root_cache = {}
 
@@ -55,4 +55,12 @@ vim.api.nvim_create_autocmd({ 'ColorScheme' }, {
   group = 'extra-whitespace',
   pattern = { '*' },
   command = [[highlight default ExtraWhitespace ctermbg=202 ctermfg=202 guibg=DarkMagenta]],
+})
+
+-- help
+vim.api.nvim_create_autocmd('FileType', {
+  pattern = 'help',
+  callback = function(event)
+    vim.keymap.set('n', 'q', ':q<CR>', { buffer = event.buf })
+  end,
 })

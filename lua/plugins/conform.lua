@@ -10,11 +10,19 @@ return {
       formatters_by_ft = {
         lua = { 'stylua' },
         -- Conform can also run multiple formatters sequentially
-        python = { 'isort', 'black' },
+        python = { 'ruff_format' },
+        c = { 'clang_format' },
         --
         -- You can use a sub-list to tell conform to run *until* a formatter
         -- is found.
         -- javascript = { { "prettierd", "prettier" } },
+      },
+      formatters = {
+        clang_format = {
+          prepend_args = {
+            '-style={BasedOnStyle: Google, ColumnLimit: 120, IndentWidth: 2}',
+          },
+        },
       },
     },
   },

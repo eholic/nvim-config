@@ -5,6 +5,12 @@
 vim.opt.hlsearch = true
 vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
 
+-- Toggle Comment
+vim.keymap.set('n', '<C-_>', ':normal gcc<CR>', { desc = 'toggle comment' })
+vim.keymap.set('v', '<C-_>', '<Esc>:normal gvgc<CR>', { desc = 'toggle comment' })
+vim.keymap.set('n', '<C-/>', ':normal gcc<CR>', { desc = 'toggle comment' })
+vim.keymap.set('v', '<C-/>', '<Esc>:normal gvgc<CR>', { desc = 'toggle comment' })
+
 -- Diagnostic keymaps
 vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, { desc = 'Go to previous [D]iagnostic message' })
 vim.keymap.set('n', ']d', vim.diagnostic.goto_next, { desc = 'Go to next [D]iagnostic message' })
@@ -24,13 +30,6 @@ vim.keymap.set('n', 'tw', '<cmd> set wrap!<CR>', { desc = 'toggle wrap' })
 
 -- Help window
 vim.keymap.set('n', '<C-h>', ':<C-u>help<Space>', { desc = 'help' })
-vim.keymap.set('n', 'q', function()
-  if vim.bo.filetype == 'help' then
-    vim.cmd 'close'
-  else
-    return 'q'
-  end
-end, { desc = 'quit help' })
 
 -- Move cursor
 --   Allow moving the cursor through wrapped lines with j, k, <Up> and <Down>
